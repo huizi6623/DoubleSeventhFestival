@@ -1,0 +1,222 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+ul, li{
+    list-style-type: none ;
+}
+
+/*主体部分*/
+#content{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    border: 1px solid #ccc;
+}
+
+.content-wrap{
+    position: relative;
+}
+
+.content-wrap > li{
+    position: relative;
+    background: #cae1ff;
+    color: red;
+    float: left;
+    overflow: hidden;
+}
+
+.charector{
+    position: absolute;
+    width: 151px;
+    height: 291px;
+    background: url(../../images/boy.png) -0px -291px no-repeat;
+    left: 6%;
+    top: 55%;
+}
+
+.slowWalk{
+    -webkit-animation: person-slow 950ms infinite steps(1, start);
+    -o-animation: person-slow 950ms infinite steps(1, start);
+    animation: person-slow 950ms infinite steps(1, start);
+}
+@keyframes person-slow{
+    0%{
+        background-position: -0px -291px;
+    }
+    25%{
+        background-position: -602px -0px;
+    }
+    50%{
+        background-position: -302px -291px;
+    }
+    75%{
+        background-position: -151px -291px;
+    }
+    100%{
+        background-position: -0px -291px;
+    }
+}
+@-webkit-keyframes person-slow {
+    0%{
+        background-position: -0px -291px;
+    }
+    25%{
+        background-position: -602px -0px;
+    }
+    50%{
+        background-position: -302px -291px;
+    }
+    75%{
+        background-position: -151px -291px;
+    }
+    100%{
+        background-position: -0px -291px;
+    }
+}
+
+.slowFlowerWalk{
+    -webkit-animation: person-flower-slow 950ms step-start infinite;
+    -o-animation: person-flower-slow 950ms step-start infinite;
+    animation: person-flower-slow 950ms step-start infinite;
+}
+
+@keyframes person-flower-slow {
+    0% {
+        background-position: -453px -0px;
+    }
+    25% {
+        background-position: -904px -0px;
+    }
+    50% {
+        background-position: -451px -0px;
+    }
+    75% {
+        background-position: -753px -0px;
+    }
+    100% {
+        background-position: -300px -0px;
+    }
+}
+@-webkit-keyframes person-flower-slow {
+    0% {
+        background-position: -453px -0px;
+    }
+    25% {
+        background-position: -904px -0px;
+    }
+    50% {
+        background-position: -451px -0px;
+    }
+    75% {
+        background-position: -753px -0px;
+    }
+    100% {
+        background-position: -300px -0px;
+    }
+}
+@-moz-keyframes person-flower-slow {
+    0% {
+        background-position: -453px -0px;
+    }
+    25% {
+        background-position: -904px -0px;
+    }
+    50% {
+        background-position: -451px -0px;
+    }
+    75% {
+        background-position: -753px -0px;
+    }
+    100% {
+        background-position: -300px -0px;
+    }
+}
+
+.pauseWalk{
+    animation-play-state: paused;
+    -webkit-animation-play-state: paused;
+}
+.boyOriginal {
+    background-position: -150px 0px;
+}
+
+.boy-rotate{
+    -webkit-animation: boy-rotate 850ms 1 step-start forwards;
+    -o-animation: boy-rotate 850ms 1 step-start forwards;
+    animation: boy-rotate 850ms 1 step-start forwards;
+}
+
+@keyframes boy-rotate {
+    0% {
+        background-position: -603px -291px;
+    }
+    16.7% {
+        background-position: -150px -0px;
+    }
+    33.4% {
+        background-position: -453px -291px;
+    }
+    50.1% {
+        background-position: -0px -0px;
+    }
+    66.8% {
+        background-position: -903px -291px;
+    }
+    83.5% {
+        background-position: -753px -291px;
+    }
+    100% {
+        background-position: -603px -291px;
+    }
+}
+@-webkit-keyframes boy-rotate {
+    0% {
+        background-position: -603px -291px;
+    }
+    16.7% {
+        background-position: -150px -0px;
+    }
+    33.4% {
+        background-position: -453px -291px;
+    }
+    50.1% {
+        background-position: -0px -0px;
+    }
+    66.8% {
+        background-position: -903px -291px;
+    }
+    83.5% {
+        background-position: -753px -291px;
+    }
+    100% {
+        background-position: -603px -291px;
+    }
+}
+@-moz-keyframes boy-rotate {
+    0% {
+        /*background-position: -603px -291px;*/
+    }
+    16.7% {
+        background-position: -150px -0px;
+    }
+    33.4% {
+        background-position: -453px -291px;
+    }
+    50.1% {
+        background-position: -0px -0px;
+    }
+    66.8% {
+        background-position: -903px -291px;
+    }
+    83.5% {
+        background-position: -753px -291px;
+    }
+    100% {
+        background-position: -603px -291px;
+    }
+}

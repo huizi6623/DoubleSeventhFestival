@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas飘花效果</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html, body{
+            width: 100%;
+            height: 100%;
+        }
+        div{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url(../images/QixiC.png) no-repeat top left/ 100% 100% ;
+        }
+        canvas{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+<div></div>
+<canvas id="canvas"></canvas>
+</body>
+
+<script>
+    var clientWidth = document.documentElement.clientWidth || document.body.clientWidth ;
+    var clientHeight = document.documentElement.clientHeight || document.body.clientHeight ;
+    var snowBox = [] ;
+    var count = 0 ;
+
+    window.onload = function(){
+        setInterval(function(){
+            updateSnow() ;
+            drawSnow() ;
+            count ++ ;
+        }, 20) ;
+    } ;
+
+    var canvas = document.getElementById("canvas") ;
+    var context = canvas.getContext("2d") ;
+    canvas.width = clientWidth ;
+    canvas.height = clientHeight ;
+
+    function getImageUrl(){
+        var snowFlakeUrls = [
+            "../images/snowflake/snowflake1.png" ,
+            "../images/snowflake/snowflake2.png" ,
+            "../images/snowflake/snowflake3.png" ,
+            "../images/snowflake/snowflake4.png" ,
+        ] ;
+
+        return snowFlakeUrls[Math.floor(Math.random() * snowFlakeUrls.length)] ;
+    }
+
+    function addSnow(){
+        if(count % 10 == 0){
+            var image = new Image() ;
+            image.src = getImageUrl() ;
+            var snow = {
+                image: image ,
+                x: Math.random() * clientWidth ,
+                y: -40 ,
+                opacity: Math.random()*0.5 + 0.5,
+                direction: Math.random()*0.6 - 0.3,
+                baseNum : Math.random()*2 + 1,
+                rotate: -2
+            } ;
+            snowBox.push(snow) ;
+
+            while(snowBox.length > 200){
+                snowBox.shift() ;
+            }
+        }
+    }
+
+    function updateSnow(){
+        addSnow() ;
+
+        snowBox.forEach(function(snow){;
+            snow.y += snow.baseNum ;
+            snow.x += snow.baseNum * snow.direction ;
+            snow.rotate += 2 ;
+        }) ;
+    }
+
+    function drawSnow(){
+        context.clearRect(0, 0, clientWidth, clientHeight) ;
+
+        snowBox.forEach(function(snow){
+            drawImage(snow.image, snow.x, snow.y, snow.opacity, snow.rotate)
+        }) ;
+    }
+
+    function drawImage(image , x  , y , alpha, rotate)
+    {
+        context.save() ;
+        context.globalAlpha = alpha ;
+        context.drawImage(image , x , y);
+        context.restore() ;
+    }
+
+
+</script>
+</html>
